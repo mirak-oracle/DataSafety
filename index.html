@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Deletion Request</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #F3F0FF; /* Light purple background */
+    }
+    .container {
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    h1 {
+      color: #3E065F; /* Deep purple */
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #FFD700; /* Gold button */
+      color: #3E065F; /* Deep purple text */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #E5C300;
+    }
+    p {
+      color: #8B0000;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Request Account Deletion</h1>
+  <p>Please fill out the form below to request account deletion. You will be redirected to WhatsApp to confirm your request.</p>
+  
+  <form id="deletionForm">
+    <input type="text" id="username" name="username" placeholder="Username" required>
+    <input type="email" id="email" name="email" placeholder="Email Address" required>
+    <button type="submit">Submit Request</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('deletionForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission to server
+    
+    // Redirect to WhatsApp for confirmation
+    window.location.href = "https://wa.me/+2349018953095?text=Hello,%20I%20would%20like%20to%20request%20an%20account%20deletion.%20My%20username%20is%20" 
+      + encodeURIComponent(document.getElementById('username').value) 
+      + "%20and%20my%20email%20is%20" 
+      + encodeURIComponent(document.getElementById('email').value) + ".";
+  });
+</script>
+
+</body>
+</html>
